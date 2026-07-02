@@ -7,7 +7,7 @@ import os
 app = FastAPI()
 
 # Gemini API Key સેટઅપ
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6Klk676bPTco9ceeZnFZw4D-5ALkPJS7Pvkq35N-KHmPQ")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6J8goIV-IIhcL4NrApc1KcPwT7CrNwYYeNtxy6w9dN14A")
 genai.configure(api_key=GEMINI_API_KEY)
 
 class ChatRequest(BaseModel):
