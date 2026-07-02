@@ -49,14 +49,20 @@
         appendMessage(messageText, 'user');
         inputEl.value = '';
 
-        try {
+ try {
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: messageText })
             });
             const data = await response.json();
-            appendMessage(data.reply, 'bot');
+            
+            // જો સર્વર તરફથી જવાબ મળે તો જ પ્રિન્ટ કરો, નહીં તો એરર બતાવો
+            if (response.ok && data.reply) {
+                appendMessage(data.reply, 'bot');
+            } else {
+                appendMessage("Error: " + (data.detail || "API Key check karo."), 'bot');
+            }
         } catch (error) {
             appendMessage('Sorry, server sathe connect thvama problem thayo chhe.', 'bot');
         }
