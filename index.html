@@ -61,7 +61,7 @@
             if (response.ok && data.reply) {
                 appendMessage(data.reply, 'bot');
             } else {
-                appendMessage("Error: " + (data.detail || "API Key check karo."), 'bot');
+                appendMessage("Error: " + (data.detail ), 'bot');
             }
         } catch (error) {
             appendMessage('Sorry, server sathe connect thvama problem thayo chhe.', 'bot');
